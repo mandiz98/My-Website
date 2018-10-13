@@ -1,0 +1,48 @@
+<div id = "contact">
+    <div class="tile is-ancestor navbar-color is-vertical">
+        <div class="tile is-parent">
+            <div class="tile is-child has-text-centered box">
+                <h1 class="big-header">Contact</h1>
+            </div>
+        </div>
+        <div class="tile is-parent navbar-color">       
+            <div class = "tile is-child box">
+                <h1 class="big-header has-text-centered">Contact form</h1>
+                <form method="POST" action="/contact">
+                    <label class = "name">Name</label>
+                    <div class="field-body">
+                        <div class = "field">
+                            <div class = "control">
+                                <input class="input" name="firstName" type="text" placeholder="First name">
+                            </div>
+                        </div>
+                        <div class = "field">
+                            <div class = "control">
+                                <input class = "input" name="lastName" type="text" placeholder="Last name">
+                            </div>                    
+                        </div>
+                    </div>
+                    
+                    <div class="field">
+                        <label class="email">Email</label>
+                        <div class="control has-icons-left">
+                            <input class="input" name="email" type="email" placeholder="example@email.com">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <label class="messagebox">Message</label>
+                    <div class="field">
+                        <textarea id="message" name="message" placeholder="Enter text here:" name="text" class="textarea"></textarea>
+                    </div>
+
+                    <div class="buttons is-right">
+                        <input type="submit" name="button" value="Send" class="button is-dark is-focused">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div id="editProject">
+    <div class="tile is-ancestor">
+        <div class="tile is-parent">
+            <div class="tile is-child">
+                <h1 class="big-header has-text-centered">New/edit Project</h1>
+            </div>
+        </div>
+    </div>
+    <div class="tile is-ancestor">
+        <div class="tile is-parent is-2">
+        </div>
+        <div class="tile is-parent has-background-grey-dark box is-8 center">
+            <div class="tile is-parent box">
+                <form method="POST" style="width: 100%;" >
+                    <div class="tile is-child is-vertical">
+                        <h2 class="bigger-font">Title</h2>
+                        <input class="input" name="title" type="text" value="">
+                    </div>
+                    <div style="display:block">
+                        <div class="tile is-child" style="display:inline-block; width: 70%;"> 
+                            <h2 class="bigger-font">Description</h2>
+                            <input class="textarea" name="description"  value="">
+                        </div>
+                        <div class="tile is-child"  style="display:inline-block; width:29%;">
+                            <h2 class="bigger-font">Image</h2>
+                            <div class="file is-boxed">
+                                <input class="file-input" type="file" name="imageFile">
+                                <span class="file-cta">
+                                <span class="file-icon">
+                                    <i class="fas fa-upload"></i>
+                                </span>
+                                <span class="file-label">
+                                    Choose an image...
+                                </span>
+                                </span>
+                                <label class="file-label"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tile is-child">
+                        <h2 class="bigger-font">Upload File</h2>
+                        <div class="file">
+                            <input class="file-input" type="file" name="projectFile">
+                            <span class="file-cta">
+                            <span class="file-icon">
+                                <i class="fas fa-upload"></i>
+                            </span>
+                            <span class="file-label">
+                                Choose a file…
+                            </span>
+                            </span>
+                            <label class="file-label"></label>
+                        </div>
+                    </div>
+                    <div class="buttons is-right">
+                        <button class="button is-dark is-focused">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
