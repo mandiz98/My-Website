@@ -2,14 +2,14 @@
     <div class="tile is-ancestor is-vertical navbar-color">
         <div class="tile is-parent">
             <div class="tile is-child box">
-                <h1 class="big-header has-text-centered">Projects</h1>
-                {{#if isLoggedIn}}
+                <h1 class="big-header has-text-centered">Portfolio</h1>
+                {{#if session.isLoggedIn}}
                     <div>
-                        <form method="POST" action="/editproject">
+                        <a href="/portfolio/project/new">
                             <div class="buttons is-right is-focused">
                                 <button class="button navbar-color">New Project</button>
                             </div>
-                        </form>
+                        </a>
                     </div>
                 {{/if}}
             </div>

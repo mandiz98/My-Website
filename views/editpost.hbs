@@ -1,0 +1,26 @@
+<div id="editpost">
+    <div class="tile is-ancestor navbar-color is-vertical">
+        <div class="tile is-parent">
+            <div class="tile is-child box">
+                <h1 class="big-header has-text-centered">Edit</h1>
+            </div>
+        </div>
+    </div>
+    <div class="tile is-ancestor navbar-color is-vertical">
+        <div class="tile is-parent is-2">
+        </div>
+        <div class="tile is-parent is-vertical">
+            <div class="tile is-child box">
+                <h1>Title:</h1>
+                <input name="title" class="input bigger-font" value="{{blogposts.title}}">
+            </div>
+            <div class="tile is-child box">
+                <h1>Text:</h1>
+                <textarea name="blogpost" class="textarea">{{blogposts.blogpost}}</textarea>
+            </div>
+            <div class="buttons tile is-child box">
+                <button class="button navbar-color" type="submit">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
