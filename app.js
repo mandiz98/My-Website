@@ -6,10 +6,10 @@ const session = require('express-session')
 var FileStore = require('session-file-store')(session);
 const multer = require('multer')
 const fs = require('fs')
+const upload = multer({ dest: 'uploads/' })
 
 const app = express()
 
- 
 console.log('change')
 //Methods
 app.engine('hbs',expressHandlebars({
@@ -24,7 +24,7 @@ app.use(session({
     store: new FileStore({
         secret: 'encryptthesessionfile'
     }),
-    secret: "cats are !cute"
+    secret: "cats are cute!"
 }))
 
 // add session variables to data in hbs
@@ -32,6 +32,9 @@ app.use(function(req, res, next){
     res.locals.session = req.session;
     next();
 })
+
+//TODO: MOVE TO PROJECTS
+app.post('/uploads/images')
 
 // serve public folder
 app.use(express.static('public',{redirect:false}))
@@ -46,7 +49,7 @@ app.use(require('./modules/about'))
 // Modules using their own route '/<module>'
 app.use('/contact', require('./modules/contact'))
 app.use('/blog', require('./modules/blog'))
-app.use('/portfolio', require('./modules/projects'))
+app.use('/portfolio', require('./modules/portfolio'))
 
 
 // Start the application webserver

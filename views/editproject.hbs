@@ -10,7 +10,7 @@
         <div class="tile is-parent is-1">
         </div>
         <div class="tile is-parent box center">
-            <form method="POST" style="width: 100%;" >
+            <form method="POST" action="" >
                 <h2 class="bigger-font">Title:</h2>
                 <div class="tile is-child is-vertical">
                     <input class="input" name="title" type="text" value="">
@@ -22,34 +22,38 @@
                     </div>
                     <div class="tile is-child">
                         <h2 class="bigger-font">Image:</h2>
-                        <div class="file">
-                            <input class="file-input" type="file" name="imageFile">
-                            <span class="file-cta">
-                                <span class="file-icon">
-                                    <i class="fas fa-upload"></i>
+                        <form action="" method="post">
+                            <div class="file">
+                                <input class="file-input" type="file" name="imageFile">
+                                <span class="file-cta">
+                                    <span class="file-icon">
+                                        <i class="fas fa-upload"></i>
+                                    </span>
+                                    <span class="file-label">
+                                        Choose an image...
+                                    </span>
                                 </span>
-                                <span class="file-label">
-                                    Choose an image...
-                                </span>
-                            </span>
-                            <label class="file-label"></label>
-                        </div>
+                                <label class="file-label"></label>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="tile is-child">
                     <h2 class="bigger-font">Upload File:</h2>
-                    <div class="file">
-                        <input class="file-input" type="file" name="projectFile">
-                        <span class="file-cta">
-                        <span class="file-icon">
-                            <i class="fas fa-upload"></i>
-                        </span>
-                        <span class="file-label">
-                            Choose a file…
-                        </span>
-                        </span>
-                        <label class="file-label"></label>
-                    </div>
+                    <form action="" method="post">
+                        <div class="file">
+                            <input class="file-input" type="file" name="projectFile">
+                            <span class="file-cta">
+                            <span class="file-icon">
+                                <i class="fas fa-upload"></i>
+                            </span>
+                            <span class="file-label">
+                                Choose a file…
+                            </span>
+                            </span>
+                            <label class="file-label"></label>
+                        </div>
+                    </form>
                 </div>
                 <div class="buttons is-right">
                     <button class="button is-dark is-focused">Submit</button>

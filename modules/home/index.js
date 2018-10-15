@@ -1,5 +1,6 @@
 var router = require('express').Router()
-// GET /blog
+
+// GET /
 router.get('/', require('./home'))
 
 module.exports = router
