@@ -1,5 +1,4 @@
 //UPDATE EXISTING BLOGPOST
-
 const myDB = require('../../db')
 
 module.exports = function(req, res, next) {

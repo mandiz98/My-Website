@@ -10,17 +10,17 @@
         <div class="tile is-parent is-2">
         </div>
         <div class="tile is-parent is-vertical">
-            <form method="POST" action="/blog/post/:id/update">
+            <form method="POST" action="/blog/post/{{blogposts.id}}/update">
                 <div class="tile is-child box">
                     <h1>Title:</h1>
                     <input name="title" class="input bigger-font" value="{{blogposts.title}}">
                 </div>
                 <div class="tile is-child box">
                     <h1>Text:</h1>
-                    <textarea name="blogpost" class="textarea">{{blogposts.blogpost}}</textarea>
+                    <textarea name="blogpost" class="textarea" value="">{{blogposts.blogpost}}</textarea>
                 </div>
-                <div class="buttons tile is-child box is-right">
-                    <button class="button navbar-color">Submit</button>
+                <div class="tile is-child box">
+                    <input type="submit" class="button navbar-color" value="Submit!">
                 </div>
             </form>
         </div>

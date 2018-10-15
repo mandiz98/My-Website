@@ -55,7 +55,7 @@ a.navbar-item:hover, a.navbar-item.is-active,
 }
 
 .buttons-same-height{
-    
+    margin-top: 33px;
 }
 
 a{

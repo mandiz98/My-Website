@@ -1,5 +1,4 @@
 //POST NEW BLOGPOST
-
 const myDB = require('../../db')
 
 module.exports = function(req,res){

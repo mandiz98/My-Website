@@ -1,5 +1,4 @@
 //GET ALL BLOGPOSTS ON BLOG PAGE
-
 const myDB = require('../../db')
 
 module.exports = function(req, res, next) {

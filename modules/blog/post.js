@@ -1,5 +1,4 @@
 //GET SPECIFIC POST
-
 const myDB = require('../../db')
 
 module.exports = function(req, res, next) {
