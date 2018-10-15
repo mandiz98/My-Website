@@ -4,7 +4,7 @@
             <div class="tile is-child has-text-centered box">
                 <h1 class="big-header">Blogposts</h1>
                 {{#if session.isLoggedIn}}
-                <a class="button navbar-color" href="/blog/new">
+                <a class="button navbar-color" href="/blog/post">
                     New Blogpost
                 </a>
                 {{/if}}
@@ -18,28 +18,12 @@
                 <div class="tile is-child is-size-3 box has-text-centered">
                     <a href="/blog/post/{{id}}" class="has-text-weight-bold">{{title}}</a>
                     {{#if @root.session.isLoggedIn}}
-                    <button type="submit" class="button navbar-color" data-toggle="modal" data-target="#myModal">...</button>
-                    <div class="modal" id="myModal">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="button close" data-dismiss="modal">&times;</button>
-                                </div>
-                                <div class="modal-body">
-                                    <a href="/blog/post/{{id}}/edit">
-                                        <button type="submit" class="button">
-                                                Edit
-                                        </button>
-                                    </a>
-                                    <form action="/blog/post/{{id}}/delete" method="post">
-                                        <button type="submit" class="button">
-                                            Delete
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
+                        <div class="buttons is-right">
+                            <a class="button navbar-color buttons-same-height" href="/blog/post/{{id}}/edit">Edit</a>
+                            <form action="/blog/post/{{id}}/delete" method="post">
+                                <input type="submit" class="button navbar-color buttons-same-height" value="Delete">
+                            </form>
                         </div>
-                    </div>
                     {{/if}}
                     <div class="tile is-child box is-size-5 has-text-centered">
                         {{blogpost}}

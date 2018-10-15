@@ -1,5 +1,7 @@
+//GET EDIT EXISTING POST
 const myDB = require('../../db')
 const isInt = require('validator/lib/isInt')
+
 module.exports = function(req, res, next) {
     let id = req.params.id
 
@@ -16,7 +18,8 @@ module.exports = function(req, res, next) {
         const model= {
             blogposts: post
         }
+        
         console.log(post)
         return res.render("editpost.hbs", model)
-    });
+    })
 }

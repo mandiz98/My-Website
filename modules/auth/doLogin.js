@@ -1,5 +1,6 @@
 const bcrypt = require('bcryptjs')
 const hashedpassword = '$2a$10$KDYU/FHbc1jl77dRNypvTOR05GEnH41gyhLUCITAtmtzCFQeNhTFC';
+
 module.exports = function(req, res, next) {
     const username = req.body.username 
     const password = req.body.password
@@ -12,5 +13,5 @@ module.exports = function(req, res, next) {
         } else {
             res.render("login.hbs")
         }
-    });
+    })
 }

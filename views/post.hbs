@@ -2,12 +2,12 @@
     <h1 class="big-header">new blogpost</h1>
     <div class="colums">
         <div class="column is-half">
-            <form method="POST" action="post">
-            {{#if errors.length}}
-                {{#each errors}}
-                    {{this}}
-                {{/each}}
-            {{/if}}
+            <form method="POST" action="/blog/post/new">
+                <!--{{#if errors.length}}
+                    {{#each errors}}
+                        {{this}}
+                    {{/each}}
+                {{/if}}-->
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
@@ -18,7 +18,7 @@
                         </div>
                         <div class="buttons is-right">
                             <div class="control">
-                                <input class="button navbar-color" type="submit" value="Post!">
+                                    <input class="button navbar-color" type="submit" value="Post!">
                             </div>
                         </div>
                     </div>

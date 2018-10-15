@@ -1,3 +1,7 @@
+//POST NEW BLOGPOST
+
+const myDB = require('../../db')
+
 module.exports = function(req,res){
     const title = req.body.title
     const blogpost = req.body.blogpost
@@ -10,23 +14,22 @@ module.exports = function(req,res){
         errors.push("Title must be less than 20 characters.")
     }
 
-    const model={
+    const model = {
         error: errors,
-        title: title,
-        inserted: false
+        title: title
     }
     
     if(errors.length == 0){
         myDB.newBlogpost(title, blogpost, function(error){    
             if(error){
                 res.render("post.hbs",{error:"internal server error"})
-            }else{
-                res.redirect("/blog")
             }
-            const model={
+            const model = {
                 blogpost:blogpost
             }
+            res.render("post.hbs",model)
         })
+        res.redirect('/blog')
     }else{
         res.render("post.hbs",model)
     }

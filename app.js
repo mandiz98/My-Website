@@ -33,9 +33,6 @@ app.use(function(req, res, next){
     next();
 })
 
-//TODO: MOVE TO PROJECTS
-app.post('/uploads/images')
-
 // serve public folder
 app.use(express.static('public',{redirect:false}))
 
@@ -49,7 +46,7 @@ app.use(require('./modules/about'))
 // Modules using their own route '/<module>'
 app.use('/contact', require('./modules/contact'))
 app.use('/blog', require('./modules/blog'))
-app.use('/portfolio', require('./modules/portfolio'))
+app.use('/portfolio', require('./modules/projects'))
 
 
 // Start the application webserver

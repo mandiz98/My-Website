@@ -47,11 +47,14 @@ exports.getLatestBlogpost = function(callback){
 }
 
 exports.newBlogpost = function(title, blogpost, callback){
+
     const query = "INSERT INTO blogposts (title,blogpost) VALUES (?,?)"
+    
     db.run(query, [title,blogpost], callback)
 }
 
 exports.getBlogpostByID = function(id, callback){
+
     const query = "SELECT * FROM blogposts WHERE id = ?"
     
     db.get(query,[id],function(error,post){
@@ -59,16 +62,20 @@ exports.getBlogpostByID = function(id, callback){
     })
 }
 
-exports.updateBlogpost = function(id,callback){
+exports.updateBlogpost = function(newtitle,newblogpost,id,callback){
+
     const query = "UPDATE blogposts SET title = ?, blogpost = ? WHERE id = ?"
-    const values = [title,blogpost,id]
+    const values = [newtitle,newblogpost,id]
+
     db.run(query,values,function(error){
         callback(error)
     })
 }
 
 exports.deleteBlogpost = function(id,callback){
+
     const query = "DELETE FROM blogposts WHERE id = ?"
+
     db.run(query,[id],function(error){
         callback(error)
     })
@@ -79,7 +86,7 @@ exports.getAllProjects = function(callback){
     const query = "SELECT * FROM projects ORDER BY id DESC"
 
     db.all(query,function(error,projects){
-        callback(error,blogposts)
+        callback(error,projects)
     })
 }
 
