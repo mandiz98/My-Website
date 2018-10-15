@@ -14,7 +14,12 @@
                     <div class="tile box is-child">
                         <p>Message: {{message}}</p>
                     </div>
-                    <a href="mailto:{{email}}">{{email}}</a>
+                    <div>
+                        <span>Email:</span> <a href="mailto:{{email}}">{{email}}</a>
+                    </div>
+                    <form action="/contact/messages/{{id}}/delete" method="post">
+                        <input type="submit" class="button navbar-color" value="Delete">
+                    </form>
                 </div>
             </div>
         {{/each}}

@@ -11,4 +11,7 @@ router.post('/', guest, require('./newMessage'))
 //GET /contact/messages - get all messages
 router.get('/messages', authenticated, require('./messages'))
 
+//POST /contact/messages/:id/delete - delete message
+router.post('/messages/:id/delete', authenticated, require('./deleteMessage'))
+
 module.exports = router

@@ -33,16 +33,16 @@ db.run(
 exports.getAllBlogposts = function(callback){
     const query = "SELECT * FROM blogposts ORDER BY id DESC"
    
-    db.all(query,function(error,blogposts){
-        callback(error,blogposts)
+    db.all(query,function(err,blogposts){
+        callback(err,blogposts)
     })
 }
 
 exports.getLatestBlogpost = function(callback){
     const query = "SELECT *  FROM blogposts ORDER BY id DESC LIMIT 1"
 
-    db.all(query,function(error,blogposts){
-        callback(error,blogposts)
+    db.all(query,function(err,blogposts){
+        callback(err,blogposts)
     })
 }
 
@@ -57,8 +57,8 @@ exports.getBlogpostByID = function(id, callback){
 
     const query = "SELECT * FROM blogposts WHERE id = ?"
     
-    db.get(query,[id],function(error,post){
-        callback(error,post)
+    db.get(query,[id],function(err,post){
+        callback(err,post)
     })
 }
 
@@ -67,8 +67,8 @@ exports.updateBlogpost = function(newtitle,newblogpost,id,callback){
     const query = "UPDATE blogposts SET title = ?, blogpost = ? WHERE id = ?"
     const values = [newtitle,newblogpost,id]
 
-    db.run(query,values,function(error){
-        callback(error)
+    db.run(query,values,function(err){
+        callback(err)
     })
 }
 
@@ -76,8 +76,8 @@ exports.deleteBlogpost = function(id,callback){
 
     const query = "DELETE FROM blogposts WHERE id = ?"
 
-    db.run(query,[id],function(error){
-        callback(error)
+    db.run(query,[id],function(err){
+        callback(err)
     })
 }
 
@@ -85,16 +85,16 @@ exports.deleteBlogpost = function(id,callback){
 exports.getAllProjects = function(callback){
     const query = "SELECT * FROM projects ORDER BY id DESC"
 
-    db.all(query,function(error,projects){
-        callback(error,projects)
+    db.all(query,function(err,projects){
+        callback(err,projects)
     })
 }
 
 exports.getLatestProjects = function(callback){
     const query = "SELECT * FROM projects ORDER BY id DESC LIMIT 3"
 
-    db.all(query,function(error,projects){
-        callback(error,projects)
+    db.all(query,function(err,projects){
+        callback(err,projects)
     })
 }
 
@@ -106,23 +106,23 @@ exports.newProject = function(callback){
 exports.getProjectByID = function(id,callback){
     const query = "SELECT * FROM projects WHERE id = ?"
 
-    db.get(query,[id],function(error,project){
-        callback(error,project)
+    db.get(query,[id],function(err,project){
+        callback(err,project)
     })
 }
 
 exports.updateProject = function(id,callback){
     const query = "UPDATE projects SET title = ?,description = ?,image = ?,file = ? WHERE id = ?"
     const values = [title,description,image,file,id]
-    db.run(query,values,function(error){
-        callback(error)
+    db.run(query,values,function(err){
+        callback(err)
     })
 }
 
 exports.deleteProject = function(id,callback){
     const query = "DELETE FROM projects WHERE id = ?"
-    db.run(query,[id],function(error){
-        callback(error)
+    db.run(query,[id],function(err){
+        callback(err)
     })
 }
 
@@ -130,15 +130,23 @@ exports.deleteProject = function(id,callback){
 exports.newMessage = function(fName,lName,email,message,callback){
     const query = "INSERT INTO messages (firstName,lastName,email,message) VALUES(?,?,?,?)"
 
-    db.run(query,[fName,lName,email,message],function(error){
-        callback(error)
+    db.run(query,[fName,lName,email,message],function(err){
+        callback(err)
     })
 }
 
 exports.getAllMessages = function(callback){
     const query = "SELECT * FROM messages ORDER BY id DESC"
 
-    db.all(query,function(error,messages){
-        callback(error,messages)
+    db.all(query,function(err,messages){
+        callback(err,messages)
+    })
+}
+
+exports.deleteMessages = function(id,callback){
+    const query = "DELETE FROM messages WHERE id = ?"
+    
+    db.run(query,[id],function(err){
+        callback(err)
     })
 }
