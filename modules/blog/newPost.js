@@ -1,7 +1,7 @@
 //POST NEW BLOGPOST
 const myDB = require('../../db')
 
-module.exports = function(req,res){
+module.exports = function(req, res){
     const title = req.body.title
     const blogpost = req.body.blogpost
     const errors = []
@@ -14,22 +14,22 @@ module.exports = function(req,res){
     }
 
     const model = {
-        error: errors,
+        error: errors, 
         title: title
     }
     
     if(errors.length == 0){
-        myDB.newBlogpost(title, blogpost, function(error){    
+        myDB.newBlogpost(title,  blogpost,  function(error){    
             if(error){
-                res.render("post.hbs",{error:"internal server error"})
+                res.render("post.hbs", {error:"internal server error"})
             }
             const model = {
                 blogpost:blogpost
             }
-            res.render("post.hbs",model)
+            res.render("post.hbs", model)
         })
         res.redirect('/blog')
     }else{
-        res.render("post.hbs",model)
+        res.render("post.hbs", model)
     }
 }

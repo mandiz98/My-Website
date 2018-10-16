@@ -3,21 +3,21 @@ var authenticated = require('../../middleware/isLoggedIn')
 var guest = require('../../middleware/guest')
 
 //GET /contact
-router.get('/', require('./contact'))
+router.get('/',  require('./contact'))
 
 //POST /contact/newMessage - post the contact form
-router.post('/', guest, require('./newMessage'))
+router.post('/',  guest,  require('./newMessage'))
 
 //GET /contact/messages - get all messages
-router.get('/messages', authenticated, require('./messages'))
+router.get('/messages',  authenticated,  require('./messages'))
 
 //POST /contact/messages/:id/delete - delete existing message
-router.post('/messages/:id/delete', authenticated, require('./deleteMessage'))
+router.post('/messages/:id/delete',  authenticated,  require('./deleteMessage'))
 
 //GET /contact/messages/:id/edit - edit an existing message
-router.get('/messages/:id/edit', authenticated, require('./editMessage'))
+router.get('/messages/:id/edit',  authenticated,  require('./editMessage'))
 
 //POST /contact/messages/:id/update - update an existing message
-router.post('/messages/:id/update', authenticated, require('./updateMessage'))
+router.post('/messages/:id/update',  authenticated,  require('./updateMessage'))
 
 module.exports = router

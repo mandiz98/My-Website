@@ -1,6 +1,6 @@
 const myDB = require('../../db')
 
-module.exports = function(request,response){
+module.exports = function(request, response){
     const fName = request.body.firstName
     const lName = request.body.lastName
     const email = request.body.email
@@ -22,18 +22,18 @@ module.exports = function(request,response){
     }
 
     const model={
-        error: errors,
-        firstName: fName,
-        lastName: lName,
-        email: email,
+        error: errors, 
+        firstName: fName, 
+        lastName: lName, 
+        email: email, 
         message: message
     }
 
     if(errors.length == 0){
-        myDB.newMessage(fName,lName,email,message,function(error,message){
+        myDB.newMessage(fName, lName, email, message, function(error, message){
             if(error){
                 console.log(error.message)
-                response.render("contact.hbs",model)
+                response.render("contact.hbs", model)
             } else {
                 response.redirect("/")
             }
