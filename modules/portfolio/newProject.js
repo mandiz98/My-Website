@@ -17,7 +17,7 @@ module.exports = function(req, res){
     if(errors.length === 0){
         myDB.newProject(title, description, link, function(error){
             if(error){
-                res.render("portfolio.hbs", {error:"internal server error"})
+                return res.render("portfolio.hbs", {error:"internal server error"})
             }else{
                 res.redirect("/portfolio")
             }
@@ -26,9 +26,9 @@ module.exports = function(req, res){
                 description: description, 
                 link: link
             }
-            res.render("portfolio.hbs", model)
+            return res.render("portfolio.hbs", model)
         })
     }else{
-        res.render("portfolio.hbs", model)
+        return res.render("portfolio.hbs", model)
     }
 }

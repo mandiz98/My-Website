@@ -1,12 +1,20 @@
 var router = require('express').Router()
 var authenticated = require('../../middleware/isLoggedIn')
 var guest = require('../../middleware/guest')
+const csrf = require('csurf')
+const bodyparser = require('body-parser')
+const cookieParser = require('cookie-parser')
+var csrfProtection = csrf({cookie: true})
+var parseForm = bodyparser.urlencoded({extended: false})
+
+
+router.use(cookieParser())
 
 //GET /contact
-router.get('/',  require('./contact'))
+router.get('/', csrfProtection, require('./contact'))
 
 //POST /contact/newMessage - post the contact form
-router.post('/',  guest,  require('./newMessage'))
+router.post('/',  guest, parseForm, csrfProtection, require('./newMessage'))
 
 //GET /contact/messages - get all messages
 router.get('/messages',  authenticated,  require('./messages'))

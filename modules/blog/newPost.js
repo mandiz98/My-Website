@@ -15,21 +15,22 @@ module.exports = function(req, res){
 
     const model = {
         error: errors, 
-        title: title
+        title: title,
+        blogpost: blogpost
     }
     
     if(errors.length == 0){
         myDB.newBlogpost(title,  blogpost,  function(error){    
             if(error){
-                res.render("post.hbs", {error:"internal server error"})
+                return res.render("post.hbs", {error:"internal server error"})
             }
             const model = {
                 blogpost:blogpost
             }
-            res.render("post.hbs", model)
+            return res.render("post.hbs", model)
         })
         res.redirect('/blog')
     }else{
-        res.render("post.hbs", model)
+        return res.render("post.hbs", model)
     }
 }

@@ -9,6 +9,6 @@ module.exports = function(req, res, next){
 
 
     myDB.updateProject(id,title,description,link, function(err){
-        res.redirect('/portfolio/'+id)
+        res.redirect('/portfolio/project/'+id)
     })
 }

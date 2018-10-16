@@ -1,4 +1,8 @@
 const myDB = require('../../db')
+const bodyparser = require('body-parser')
+const csrf = require('csurf')
+var csrfProtection = csrf({cookie: true})
+var parseForm = bodyparser.urlencoded({extended: false})
 
 module.exports = function(request, response){
     const fName = request.body.firstName
