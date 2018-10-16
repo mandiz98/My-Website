@@ -15,7 +15,7 @@
         {{#each projects}}
             <div class="tile is-parent is-vertical">
                 <div class="tile is-child box is-size-3 has-text-centered">
-                    <a href="/portfolio/{{id}}" class="has-text-weight-bold">{{title}}</a>
+                    <a href="/portfolio/project/{{id}}" class="has-text-weight-bold">{{title}}</a>
                     <div class="tile is-child box is-size-5 has-text-centered">
                         Description: {{description}}
                     </div>
@@ -24,7 +24,7 @@
                     </div>
                     {{#if @root.session.isLoggedIn}}
                         <div class="buttons is-right">
-                            <a class="button navbar-color" href="/portfolio/{{id}}/edit">Edit</a>
+                            <a class="button navbar-color" href="/portfolio/project/{{id}}/edit">Edit</a>
                             <div class="buttons-same-height-portfolio">
                                 <form action="/portfolio/{{id}}/delete" method="post">
                                     <input type="submit" class="button navbar-color" value="Delete">
