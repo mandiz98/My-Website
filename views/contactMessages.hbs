@@ -9,17 +9,23 @@
     <div class="tile is-ancestor navbar-color is-vertical">
         {{#each messages}}
             <div class="tile is-parent is-vertical">
-                <div class="tile box is-child is-size-3 has-text-centered">
+                <div class="tile box is-child is-size-4 has-text-centered">
                     <h1 class="has-text-weight-bold">From: {{firstName}} {{lastName}}</h1>
-                    <div class="tile box is-child">
-                        <p>Message: {{message}}</p>
+                    <div class="tile box is-child is-size-4">
+                        Message:
+                        <p>{{message}}</p>
                     </div>
                     <div>
                         <span>Email:</span> <a href="mailto:{{email}}">{{email}}</a>
                     </div>
-                    <form action="/contact/messages/{{id}}/delete" method="post">
-                        <input type="submit" class="button navbar-color" value="Delete">
-                    </form>
+                    <div class="buttons is-right">
+                        <a class="button navbar-color" href="/contact/messages/{{id}}/edit">Edit</a>
+                        <div class="">
+                            <form action="/contact/messages/{{id}}/delete" method="post">
+                                <input type="submit" class="button navbar-color buttons-same-height-messages" value="Delete">
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         {{/each}}

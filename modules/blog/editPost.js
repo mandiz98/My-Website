@@ -10,8 +10,7 @@ module.exports = function(req, res, next) {
     }
 
     myDB.getBlogpostByID(id, function(err, post){
-
-        if (!post) {
+        if(!post) {
             return res.render('notfound.hbs')
         }
 
@@ -20,6 +19,6 @@ module.exports = function(req, res, next) {
         }
         
         console.log(post)
-        return res.render("editpost.hbs", model)
+        return res.render("editPost.hbs", model)
     })
 }

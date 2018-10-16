@@ -11,7 +11,7 @@ module.exports = function(req,res,next) {
 
     myDB.getProjectByID(id,function(err,project){
         
-        if(!project) {
+        if(project) {
             return res.render('notfound.hbs')
         }
 

@@ -1,0 +1,46 @@
+<div id = "contact">
+    <div class="tile is-ancestor navbar-color is-vertical">
+        <div class="tile is-parent">
+            <div class="tile is-child has-text-centered box">
+                <h1 class="big-header">Contact</h1>
+            </div>
+        </div>
+        <div class="tile is-parent navbar-color">       
+            <div class = "tile is-child box">
+                <h1 class="big-header has-text-centered">Edit Message</h1>
+                <form method="POST" action="/contact/messages/{{messages.id}}/update">
+                    <label class = "name">Name</label>
+                    <div class="field-body">
+                        <div class = "field">
+                            <div class = "control">
+                                <input class="input" name="firstName" type="text" value="{{messages.firstName}}">
+                            </div>
+                        </div>
+                        <div class = "field">
+                            <div class = "control">
+                                <input class = "input" name="lastName" type="text" value="{{messages.lastName}}">
+                            </div>                    
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="email">Email</label>
+                        <div class="control has-icons-left">
+                            <input class="input" name="email" type="email" value="{{messages.email}}">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <label class="messagebox">Message</label>
+                    <div class="field">
+                        <textarea id="message" name="message" name="text" class="textarea">{{messages.message}}</textarea>
+                    </div>
+
+                    <div class="buttons is-right">
+                        <input type="submit" value="update" class="button is-dark is-focused">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

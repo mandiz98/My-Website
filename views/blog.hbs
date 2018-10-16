@@ -20,7 +20,7 @@
                     {{#if @root.session.isLoggedIn}}
                         <div class="buttons is-right">
                             <a class="button navbar-color" href="/blog/post/{{id}}/edit">Edit</a>
-                            <div class="buttons-same-height">
+                            <div class="buttons-same-height-blog">
                                 <form action="/blog/post/{{id}}/delete" method="post">
                                     <input type="submit" class="button navbar-color" value="Delete">
                                 </form>

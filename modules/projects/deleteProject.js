@@ -10,11 +10,9 @@ module.exports = function(req,res,next){
     }
 
     myDB.deleteProject(id,function(err){
-
         if(err){
             return res.render('notfound.hbs')
         }
-
         res.redirect("/projects")
     })
 }

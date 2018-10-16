@@ -54,8 +54,12 @@ a.navbar-item:hover, a.navbar-item.is-active,
     color: rgb(56, 56, 56);
 }
 
-.buttons-same-height{
+.buttons-same-height-blog{
     margin-top: 33px;
+}
+
+.buttons-same-height-messages{
+    margin-top: 25px; 
 }
 
 a{

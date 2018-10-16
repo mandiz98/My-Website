@@ -1,5 +1,4 @@
-//GET SPECIFIC PROJECT
-
+//GET EDIT EXISTING MESSAGE
 const myDB = require('../../db')
 const isInt = require('validator/lib/isInt')
 
@@ -10,15 +9,16 @@ module.exports = function(req,res,next){
         return res.render('notfound.hbs')
     }
 
-    myDB.getProjectByID(id,function(err,project){
-        if(project){
+    myDB.getMessagesById(id, function(err,message){
+        if(!message) {
             return res.render('notfound.hbs')
         }
 
         const model = {
-            projects: [project]
+            messages: message
         }
-
-        return res.render("portfolio.hbs",model)
+        
+        console.log(message)
+        return res.render("editMessage.hbs",model)
     })
 }

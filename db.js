@@ -62,10 +62,10 @@ exports.getBlogpostByID = function(id, callback){
     })
 }
 
-exports.updateBlogpost = function(newtitle,newblogpost,id,callback){
+exports.updateBlogpost = function(newTitle,newBlogpost,id,callback){
 
     const query = "UPDATE blogposts SET title = ?, blogpost = ? WHERE id = ?"
-    const values = [newtitle,newblogpost,id]
+    const values = [newTitle,newBlogpost,id]
 
     db.run(query,values,function(err){
         callback(err)
@@ -143,10 +143,27 @@ exports.getAllMessages = function(callback){
     })
 }
 
+exports.getMessagesById = function(id,callback){
+    const query = "SELECT * FROM messages WHERE id = ?"
+
+    db.get(query,id,function(err,message){
+        callback(err,message)
+    })
+}
+
 exports.deleteMessages = function(id,callback){
     const query = "DELETE FROM messages WHERE id = ?"
     
     db.run(query,[id],function(err){
+        callback(err)
+    })
+}
+
+exports.updateMessage = function(id, newFName, newLName, newEmail, newMessage,callback){
+    const query = "UPDATE messages SET firstName = ?, lastName = ?, email = ?, message = ? WHERE id = ?"
+    const values = [newFName,newLName,newEmail,newMessage,id]
+    
+    db.run(query,values,function(err){
         callback(err)
     })
 }
