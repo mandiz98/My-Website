@@ -4,8 +4,6 @@ const expressHandlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 var FileStore = require('session-file-store')(session);
-const multer = require('multer')
-const upload = multer({ dest: 'uploads/' })
 
 const app = express()
 
@@ -52,7 +50,7 @@ app.use('/portfolio',  require('./modules/portfolio/'))
 app.listen(8080,  function() {
     console.log("App now listening on port " + 8080)
 })
-/*
+
 app.use(function(req, res){
     res.render("notfound.hbs")
-})*/
+})

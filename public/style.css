@@ -62,6 +62,10 @@ a.navbar-item:hover,  a.navbar-item.is-active,
     margin-top: 25px; 
 }
 
+.buttons-same-height-portfolio{
+    margin-top: 32px;
+}
+
 a{
     color: rgb(97,  97,  97);
     font: bold;

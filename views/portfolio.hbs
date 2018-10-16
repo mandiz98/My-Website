@@ -1,23 +1,39 @@
 <div id="portfolio">
     <div class="tile is-ancestor is-vertical navbar-color">
         <div class="tile is-parent">
-            <div class="tile is-child box">
-                <h1 class="big-header has-text-centered">Portfolio</h1>
+            <div class="tile is-child has-text-centered box">
+                <h1 class="big-header">Portfolio</h1>
                 {{#if session.isLoggedIn}}
-                    <a href="portfolio/post">
-                        <div class="buttons is-right is-focused">
-                            <button class="button navbar-color">New Project</button>
-                        </div>
+                    <a class="button navbar-color" href="/portfolio/project/">
+                        New Project
                     </a>
                 {{/if}}
             </div>
         </div>
-        <div class="tile is-parent">
-            {{#each projects}}
-                <div class="tile is-child box">
-
+    </div>
+    <div class="tile is-ancestor navbar-color is-vertical">
+        {{#each projects}}
+            <div class="tile is-parent is-vertical">
+                <div class="tile is-child box is-size-3 has-text-centered">
+                    <a href="/portfolio/{{id}}" class="has-text-weight-bold">{{title}}</a>
+                    <div class="tile is-child box is-size-5 has-text-centered">
+                        Description: {{description}}
+                    </div>
+                    <div class="tile is-child box is-size-5">
+                        Link: <a href="{{link}}">{{link}}</a>
+                    </div>
+                    {{#if @root.session.isLoggedIn}}
+                        <div class="buttons is-right">
+                            <a class="button navbar-color" href="/portfolio/{{id}}/edit">Edit</a>
+                            <div class="buttons-same-height-portfolio">
+                                <form action="/portfolio/{{id}}/delete" method="post">
+                                    <input type="submit" class="button navbar-color" value="Delete">
+                                </form>
+                            </div>
+                        </div>
+                    {{/if}}
                 </div>
-            {{/each}}
-        </div>
+            </div>
+        {{/each}}
     </div>
 </div>

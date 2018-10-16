@@ -17,6 +17,9 @@
             <div class="tile is-parent is-vertical">
                 <div class="tile is-child is-size-3 box has-text-centered">
                     <a href="/blog/post/{{id}}" class="has-text-weight-bold">{{title}}</a>
+                    <div class="tile is-child box is-size-5 has-text-centered">
+                        {{blogpost}}
+                    </div>
                     {{#if @root.session.isLoggedIn}}
                         <div class="buttons is-right">
                             <a class="button navbar-color" href="/blog/post/{{id}}/edit">Edit</a>
@@ -27,9 +30,6 @@
                             </div>
                         </div>
                     {{/if}}
-                    <div class="tile is-child box is-size-5 has-text-centered">
-                        {{blogpost}}
-                    </div>
                 </div>
             </div>
         {{/each}}

@@ -5,34 +5,32 @@
                 <h1 class="big-header has-text-centered">Latest Projects</h1>
             </div>
         </div>
-        <div class="tile is-parent">
-            <div class="tile is-child is-4 box">
-                Lorem ipsum,  dolor sit amet consectetur adipisicing elit. Qui eligendi ratione repudiandae sit ipsam omnis placeat totam! Voluptate quibusdam eius quaerat architecto libero amet,  suscipit,  cum neque asperiores,  et veniam.
-                Temporibus nostrum minus eos assumenda. Explicabo quidem rerum alias facere harum modi,  optio cum ea,  consectetur asperiores quod labore blanditiis. Tempore blanditiis sapiente natus amet illum aperiam,  magnam laboriosam adipisci!
-                Hic quo ipsam totam nulla ad in animi,  dolore unde dolor id eaque obcaecati ea quibusdam quisquam labore,  voluptates quod? Dicta laudantium,  error eaque obcaecati quod repellat alias culpa. Eligendi?
-            </div>
-            <div class="tile is-child is-4 box">
-                Lorem ipsum,  dolor sit amet consectetur adipisicing elit. Qui eligendi ratione repudiandae sit ipsam omnis placeat totam! Voluptate quibusdam eius quaerat architecto libero amet,  suscipit,  cum neque asperiores,  et veniam.
-                Temporibus nostrum minus eos assumenda. Explicabo quidem rerum alias facere harum modi,  optio cum ea,  consectetur asperiores quod labore blanditiis. Tempore blanditiis sapiente natus amet illum aperiam,  magnam laboriosam adipisci!
-                Hic quo ipsam totam nulla ad in animi,  dolore unde dolor id eaque obcaecati ea quibusdam quisquam labore,  voluptates quod? Dicta laudantium,  error eaque obcaecati quod repellat alias culpa. Eligendi?
-            </div>
-            <div class="tile is-child is-4 box">
-                Lorem ipsum,  dolor sit amet consectetur adipisicing elit. Qui eligendi ratione repudiandae sit ipsam omnis placeat totam! Voluptate quibusdam eius quaerat architecto libero amet,  suscipit,  cum neque asperiores,  et veniam.
-                Temporibus nostrum minus eos assumenda. Explicabo quidem rerum alias facere harum modi,  optio cum ea,  consectetur asperiores quod labore blanditiis. Tempore blanditiis sapiente natus amet illum aperiam,  magnam laboriosam adipisci!
-                Hic quo ipsam totam nulla ad in animi,  dolore unde dolor id eaque obcaecati ea quibusdam quisquam labore,  voluptates quod? Dicta laudantium,  error eaque obcaecati quod repellat alias culpa. Eligendi?
-            </div>
+        <div class="tile is-parent box">
+            {{#each projects}}
+                <div class="tile is-child box font-color has-text-centered ">
+                    <div class="is-size-3 has-text-weight-bold">
+                        <a href="/portfolio/project/{{id}}">{{title}}</a>
+                    </div>
+                    <div class="is-size-5 is-italic">
+                        {{description}}
+                    </div>
+                    <div class="is-size-5">
+                        <a href="{{link}}">{{link}}</a>
+                    </div>
+                </div>
+            {{/each}}
         </div>
     </div>
     <div class="tile is-ancestor navbar-color">
-        <div class="tile is-parent is-5 is-vertical">
+        <div class="tile is-parent is-7 is-vertical">
             <div class="tile is-child box">
                 <h1 class="big-header has-text-centered">Latest Blogpost</h1>
             </div>
             <div class="tile is-child box">
-                <div class="is-size-3 font-color has-text-centered has-text-weight-bold">
+                <div class="font-color has-text-centered has-text-weight-bold">
                     <a href="/blog/post/{{blogpost.id}}">{{blogpost.title}}</a>
                 </div>
-                <div class="box is-size-5 has-text-centered">
+                <div class="box has-text-centered">
                     {{blogpost.blogpost}}
                 </div>
             </div>
@@ -40,7 +38,18 @@
         <div class="tile is-parent">
             <div class="tile is-child box">
                 <h1 class="big-header">Information</h1>
-                Lorem ipsum dolor sit amet consectetur,  adipisicing elit. Quam similique voluptas rerum inventore,  hic facilis! Non distinctio iusto sequi,  beatae repellendus nemo consequatur vero facere blanditiis soluta quod pariatur laborum.Eveniet itaque voluptatibus autem qui hic pariatur mollitia ea ab molestias placeat eaque nisi saepe optio a asperiores,  id eius quod. Magnam accusamus repellendus blanditiis maxime ex quia,  nemo fuga.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis ex tellus.
+                    Donec mi urna, congue sit amet tempus ut, pulvinar quis neque. Integer at 
+                    nisl felis. Morbi quis auctor libero. Duis quis risus gravida, scelerisque 
+                    odio at, placerat quam. Pellentesque sit amet massa porttitor, sodales est et,
+                    sagittis lectus. Vivamus scelerisque dui eget turpis sagittis, blandit pulvinar 
+                    felis convallis. Nunc lobortis, neque et luctus finibus, orci quam iaculis tellus,
+                    sit amet tempor neque lectus eget arcu. Phasellus vel libero et ligula malesuada 
+                    accumsan. Maecenas condimentum eget massa et tincidunt. Vestibulum ante ipsum 
+                    primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam commodo 
+                    venenatis urna, sed rhoncus leo elementum sed. Donec imperdiet nunc sodales mi 
+                    commodo condimentum.
+                    
             </div>
         </div>
     </div>

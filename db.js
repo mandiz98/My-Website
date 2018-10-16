@@ -14,8 +14,7 @@ db.run(
     `CREATE TABLE IF NOT EXISTS projects (
         title TEXT, 
         description TEXT, 
-        image TEXT, 
-        file TEXT, 
+        link TEXT,
         id INTEGER PRIMARY KEY AUTOINCREMENT)
     `
 )
@@ -98,9 +97,9 @@ exports.getLatestProjects = function(callback){
     })
 }
 
-exports.newProject = function(callback){
-    const query = "INSERT INTO projects (title, description, image, file) VALUES (?, ?, ?, ?)"
-    db.run(query, [title, description, image, file], callback)
+exports.newProject = function(title,description,link,callback){
+    const query = "INSERT INTO projects (title, description, link) VALUES (?, ?, ?)"
+    db.run(query, [title, description, link], callback)
 }
 
 exports.getProjectByID = function(id, callback){
@@ -111,9 +110,9 @@ exports.getProjectByID = function(id, callback){
     })
 }
 
-exports.updateProject = function(id, callback){
-    const query = "UPDATE projects SET title = ?, description = ?, image = ?, file = ? WHERE id = ?"
-    const values = [title, description, image, file, id]
+exports.updateProject = function(id, newTitle, newDescription, newLink, callback){
+    const query = "UPDATE projects SET title = ?, description = ?, link = ? WHERE id = ?"
+    const values = [newTitle, newDescription, newLink, id]
     db.run(query, values, function(err){
         callback(err)
     })
@@ -124,6 +123,11 @@ exports.deleteProject = function(id, callback){
     db.run(query, [id], function(err){
         callback(err)
     })
+}
+
+//HOME PAGE
+exports.getHomePageRescources = function(callback){
+    
 }
 
 //CONTACT

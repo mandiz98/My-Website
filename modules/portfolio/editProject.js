@@ -6,15 +6,14 @@ module.exports = function(req, res, next) {
     let id = req.params.id
 
     if(!isInt(id)) {
-        return res.render('notfound.hbs')
+        //return res.render('notfound.hbs')
     }
 
     myDB.getProjectByID(id, function(err, project){
-        
-        if(project) {
-            return res.render('notfound.hbs')
+        if(!project){
+            //return res.render('notfound.hbs')
         }
-
+        
         const model = {
             portfolio: project
         }
