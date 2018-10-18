@@ -62,6 +62,7 @@ app.listen(8080, function() {
     console.log("App now listening on port " + 8080)
 })
 
+/*
 app.use(function(req, res){
     res.render("notfound.hbs")
-})
+})*/

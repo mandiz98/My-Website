@@ -23,11 +23,6 @@ module.exports = function(req, res, next){
     myDB.getProjectsAmount(function(err, total) {
         let totalPages = Math.ceil(total.c / limit)
         myDB.getAllProjectsPage(limit, skip, function(err, projects) {
-
-            if (!projects.length) {
-                return res.render("notfound.hbs")
-            }
-
             const model = {
                 projects: projects,
                 totalPages: totalPages,
