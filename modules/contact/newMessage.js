@@ -12,16 +12,16 @@ module.exports = function(request, response){
 
     const errors = []
 
-    if(!fName){
+    if(!fName || fName.length > 20){
         errors.push("You must enter a first name.")
     }
-    if(lName.length == 0){
+    if(!lName || lName.length > 20){
         errors.push("You must enter a last name.")
     }
-    if(email.length == 0){
+    if(!email || email.length > 50){
         errors.push("You must enter an email.")
     }
-    if(message.length == 0){
+    if(!message || message.length > 250){
         errors.push("You must enter a message.")
     }
 
