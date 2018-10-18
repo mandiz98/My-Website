@@ -6,11 +6,11 @@
             <div class="tile is-parent box is-5 navbar-color">
                 <div class="tile is-child box" id="login">
                     <h1 class="big-header">Login</h1>
-                    <form method="POST">
+                    <form method="POST" action="/login">
                         <div class="field">
                             <label>Username:</label> <br>
                             <p class="control has-icons-left">
-                                <input class="input" type="text" name="username" placeholder="Username">
+                                <input class="input" type="text" name="username" placeholder="Username" required>
                                 <span class="icon is-small is-left">
                                     <i class="fas fa-user"></i>
                                 </span>
@@ -19,7 +19,7 @@
                         <div class="field">
                             <label>Password:</label> <br>
                             <p class="control has-icons-left">
-                                <input class="input"  type="password" name="password" placeholder="Password">
+                                <input class="input"  type="password" name="password" placeholder="Password" required>
                                 <span class="icon is-small is-left">
                                     <i class="fas fa-lock"></i>
                                 </span>

@@ -6,7 +6,7 @@ const db = new sqlite3.Database('database.db')
 db.run(
     `CREATE TABLE IF NOT EXISTS blogposts (
         title TEXT, 
-        blogpost TEXT,  
+        blogpost TEXT, 
         id INTEGER PRIMARY KEY AUTOINCREMENT)
     `
 )
@@ -45,14 +45,14 @@ exports.getLatestBlogpost = function(callback){
     })
 }
 
-exports.newBlogpost = function(title,  blogpost,  callback){
+exports.newBlogpost = function(title, blogpost, callback){
 
     const query = "INSERT INTO blogposts (title, blogpost) VALUES (?, ?)"
     
-    db.run(query,  [title, blogpost],  callback)
+    db.run(query, [title, blogpost], callback)
 }
 
-exports.getBlogpostByID = function(id,  callback){
+exports.getBlogpostByID = function(id, callback){
 
     const query = "SELECT * FROM blogposts WHERE id = ?"
     
@@ -63,7 +63,7 @@ exports.getBlogpostByID = function(id,  callback){
 
 exports.updateBlogpost = function(newTitle, newBlogpost, id, callback){
 
-    const query = "UPDATE blogposts SET title = ?,  blogpost = ? WHERE id = ?"
+    const query = "UPDATE blogposts SET title = ?, blogpost = ? WHERE id = ?"
     const values = [newTitle, newBlogpost, id]
 
     db.run(query, values, function(err){
@@ -80,6 +80,16 @@ exports.deleteBlogpost = function(id, callback){
     })
 }
 
+exports.searchForBlogpost = function(search, callback){
+    const query = "SELECT * FROM blogposts WHERE title LIKE ? OR blogpost LIKE ?"
+    searchTitle = ('%' + search + '%')
+    //searchBLogpost = ('%' + search + '%')
+
+    db.all(query,[searchTitle,/*searchBLogpost*/],function(err,result){
+        callback(err,result)
+    })
+}
+
 //PROJECT
 exports.getAllProjects = function(callback){
     const query = "SELECT * FROM projects ORDER BY id DESC"
@@ -87,6 +97,17 @@ exports.getAllProjects = function(callback){
     db.all(query, function(err, projects){
         callback(err, projects)
     })
+}
+
+exports.getAllProjectsPage = function(limit, skip, callback){
+    const query = "SELECT * FROM projects ORDER BY id DESC LIMIT ? , ?"
+
+    db.all(query, [skip, limit], callback)
+}
+
+exports.getProjectsAmount = function(callback) {
+    const totalQuery = "SELECT COUNT(*) as c FROM projects"
+    db.get(totalQuery, callback)
 }
 
 exports.getLatestProjects = function(callback){
@@ -125,11 +146,6 @@ exports.deleteProject = function(id, callback){
     })
 }
 
-//HOME PAGE
-exports.getHomePageRescources = function(callback){
-    
-}
-
 //CONTACT
 exports.newMessage = function(fName, lName, email, message, callback){
     const query = "INSERT INTO messages (firstName, lastName, email, message) VALUES(?, ?, ?, ?)"
@@ -163,8 +179,8 @@ exports.deleteMessages = function(id, callback){
     })
 }
 
-exports.updateMessage = function(id,  newFName,  newLName,  newEmail,  newMessage, callback){
-    const query = "UPDATE messages SET firstName = ?,  lastName = ?,  email = ?,  message = ? WHERE id = ?"
+exports.updateMessage = function(id, newFName, newLName, newEmail, newMessage, callback){
+    const query = "UPDATE messages SET firstName = ?, lastName = ?, email = ?, message = ? WHERE id = ?"
     const values = [newFName, newLName, newEmail, newMessage, id]
     
     db.run(query, values, function(err){

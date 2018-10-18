@@ -37,3 +37,25 @@
         {{/each}}
     </div>
 </div>
+<div class="tile is-ancestor navbar-color">
+    <div class="tile is-parent">
+        <div class="tile is-child box has-text-centered">
+            <p>number of projects per page</p>
+            <form method="GET">
+                <div class="select">
+                    <select name="limit">
+                        <option value="1">1</option>
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <input class="button" type="submit" value="Apply">
+            </form>
+            <p>Pages:</p>
+            {{#for 0 totalPages 1}}
+                    <a href="/portfolio?page={{inc this}}&limit={{@root.limit}}">{{inc this}}</a>
+            {{/for}}
+        </div>
+    </div>
+</div>

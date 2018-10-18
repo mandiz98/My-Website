@@ -1,11 +1,11 @@
-module.exports = function(req,  res,  next) {
-    const model = {
+module.exports = function(req, res, next) {
+    const model={
         token: req.csrfToken()
     }
     if(req.session.isLoggedIn) {
         res.redirect('/contact/messages')
     }
-    else {
+   else{
         res.render("contact.hbs",model)
     }
 }

@@ -9,12 +9,12 @@ module.exports = function(req, res, next){
         return res.render('notfound.hbs')
     }
 
-    myDB.getMessagesById(id,  function(err, message){
+    myDB.getMessagesById(id, function(err, message){
         if(!message) {
             return res.render('notfound.hbs')
         }
 
-        const model = {
+        const model={
             messages: message
         }
         

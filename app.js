@@ -6,12 +6,23 @@ const session = require('express-session')
 var FileStore = require('session-file-store')(session);
 
 const app = express()
-
 console.log('change')
 //Methods
 app.engine('hbs', expressHandlebars({
     defaultLayout: 'main', 
-    extname: '.hbs'
+    extname: '.hbs',
+    helpers: {
+        for: function(from, to, incr, block) {
+            var accum = '';
+            for(var i = from; i < to; i += incr)
+                accum += block.fn(i);
+            return accum;
+        },
+        inc: function(value, options)
+        {
+            return parseInt(value) + 1;
+        }
+    }
 }))
 
 // set up sessions - filestore to persist session over app restart. (do not use in production!)
@@ -25,7 +36,7 @@ app.use(session({
 }))
 
 // add session variables to data in hbs
-app.use(function(req,  res,  next){
+app.use(function(req, res, next){
     res.locals.session = req.session;
     next();
 })
@@ -41,13 +52,13 @@ app.use(require('./modules/home'))
 app.use(require('./modules/about'))
 
 // Modules using their own route '/<module>'
-app.use('/contact',  require('./modules/contact'))
-app.use('/blog',  require('./modules/blog'))
-app.use('/portfolio',  require('./modules/portfolio/'))
+app.use('/contact', require('./modules/contact'))
+app.use('/blog', require('./modules/blog'))
+app.use('/portfolio', require('./modules/portfolio/'))
 
 
 // Start the application webserver
-app.listen(8080,  function() {
+app.listen(8080, function() {
     console.log("App now listening on port " + 8080)
 })
 

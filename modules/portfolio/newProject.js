@@ -7,12 +7,18 @@ module.exports = function(req, res){
     const link = req.body.link
     const errors = []
 
-    const model = { 
+    const model={ 
         error: errors, 
         title: title, 
         description: description, 
         link: link
     }
+
+    if(title === null ||
+        description === null ||
+        link === null){
+            errors.push(error)
+        }
 
     if(errors.length === 0){
         myDB.newProject(title, description, link, function(error){

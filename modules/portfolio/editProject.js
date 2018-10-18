@@ -14,7 +14,7 @@ module.exports = function(req, res, next) {
             //return res.render('notfound.hbs')
         }
         
-        const model = {
+        const model={
             portfolio: project
         }
 

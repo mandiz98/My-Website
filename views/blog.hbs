@@ -8,16 +8,26 @@
                     New Blogpost
                 </a>
                 {{/if}}
-                
             </div>
+        </div>
+        <div class="tile is-parent">
+            <div class="tile is-child"></div>
+            <form action="/blog/search" method="post" style="width:100%;">
+                <div class="tile is-child field has-addons">
+                    <div style="width:100%;">
+                        <input class="input" type="text" name="search" placeholder="Find a Blogpost">
+                    </div>
+                    <input class="button navbar-color" type="submit" value="Search">
+                </div>
+            </form>
         </div>
     </div>
     <div class="tile is-ancestor navbar-color is-vertical">
         {{#each blogposts}}
             <div class="tile is-parent is-vertical">
                 <div class="tile is-child is-size-3 box has-text-centered">
-                    <a href="/blog/post/{{id}}" class="has-text-weight-bold">{{title}}</a>
-                    <div class="tile is-child box is-size-5 has-text-centered">
+                    <a href="/blog/post/{{id}}" name="title" class="has-text-weight-bold">{{title}}</a>
+                    <div name="blogpost" class="tile is-child box is-size-5 has-text-centered">
                         {{blogpost}}
                     </div>
                     {{#if @root.session.isLoggedIn}}

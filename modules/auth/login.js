@@ -1,4 +1,4 @@
-module.exports = function(req,  res,  next) {
+module.exports = function(req, res, next) {
     console.log('hit')
-    res.render("login.hbs")
+    return res.render("login.hbs")
 }

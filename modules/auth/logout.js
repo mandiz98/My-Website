@@ -1,4 +1,4 @@
-module.exports = function(req,  res,  next) {
+module.exports = function(req, res) {
     req.session.isLoggedIn = false
-    res.redirect('/')
+    return res.render('home.hbs')
 }

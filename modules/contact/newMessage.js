@@ -38,7 +38,7 @@ module.exports = function(request, response){
             if(error){
                 console.log(error.message)
                 response.render("contact.hbs", model)
-            } else {
+            }else{
                 response.redirect("/")
             }
         })

@@ -13,23 +13,22 @@ module.exports = function(req, res){
         errors.push("Title must be less than 20 characters.")
     }
 
-    const model = {
+    const model={
         error: errors, 
         title: title,
         blogpost: blogpost
     }
     
     if(errors.length == 0){
-        myDB.newBlogpost(title,  blogpost,  function(error){    
+        myDB.newBlogpost(title, blogpost, function(error){    
             if(error){
                 return res.render("post.hbs", {error:"internal server error"})
             }
-            const model = {
+            const model={
                 blogpost:blogpost
             }
-            return res.render("post.hbs", model)
+            return res.redirect("/blog")
         })
-        res.redirect('/blog')
     }else{
         return res.render("post.hbs", model)
     }

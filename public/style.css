@@ -1,5 +1,5 @@
 .hero{
-    background-color: rgb(56,  56,  56);
+    background-color: rgb(56, 56, 56);
     font-size: 25pt;
 }
 
@@ -8,7 +8,7 @@ ul{
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(56,  56,  56);
+    background-color: rgb(56, 56, 56);
 }
 
 .hero .hero-body .navbar-brand img{
@@ -26,19 +26,19 @@ ul{
 }
 
 .navbar-color{
-    background-color: rgb(56,  56,  56);
+    background-color: rgb(56, 56, 56);
     color: white;
 }
 
 .navbar-item{
-    background-color: rgb(56,  56,  56);
+    background-color: rgb(56, 56, 56);
     color: white;
 }
 
-a.navbar-item:hover,  a.navbar-item.is-active, 
+a.navbar-item:hover, a.navbar-item.is-active, 
 .navbar-link:hover, 
 .navbar-link.is-active{
-    background-color: rgb(97,  97,  97);
+    background-color: rgb(97, 97, 97);
     color: white;
 }
 
@@ -51,7 +51,7 @@ a.navbar-item:hover,  a.navbar-item.is-active,
 }
 
 .font-color{
-    color: rgb(56,  56,  56);
+    color: rgb(56, 56, 56);
 }
 
 .buttons-same-height-blog{
@@ -67,7 +67,7 @@ a.navbar-item:hover,  a.navbar-item.is-active,
 }
 
 a{
-    color: rgb(97,  97,  97);
+    color: rgb(97, 97, 97);
     font: bold;
 }
 li{
@@ -83,7 +83,7 @@ li a{
 }
 
 li a:hover{
-    background-color: rgb(97,  97,  97);
+    background-color: rgb(97, 97, 97);
 }
 
 footer{
